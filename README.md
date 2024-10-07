@@ -1,27 +1,25 @@
 # IKEA Stock Checker
 
-This Python script checks the stock availability of a specified IKEA product on the IKEA Hong Kong website using web scraping techniques with Selenium.
+IKEA Stock Checker is a Python-based tool that automatically checks the availability of IKEA products on the IKEA Hong Kong website. When a product becomes available, it sends a notification via Telegram.
 
 ## Features
 
-- Checks stock availability of a specified IKEA product
-- Uses headless Chrome browser for efficient checking
-- Configurable through environment variables
-- Suitable for periodic automated checks (e.g., with GitHub Actions)
+- Automated stock checking for IKEA Hong Kong products
+- Telegram notifications when products are in stock
+- Configurable product list
+- GitHub Actions integration for scheduled checks
 
-## Prerequisites
+## Requirements
 
-Before you begin, ensure you have met the following requirements:
-
-- Python 3.12 or higher
-- pip (Python package installer)
-- Chrome browser installed on your system
+- Python 3.12+
+- Chrome browser
+- ChromeDriver
 
 ## Installation
 
-1. Clone this repository:
+1. Clone the repository:
    ```
-   git clone https://github.com/harrychanhoyin95/ikea-stock-checker.git
+   git clone https://github.com/yourusername/ikea-stock-checker.git
    cd ikea-stock-checker
    ```
 
@@ -30,39 +28,39 @@ Before you begin, ensure you have met the following requirements:
    pip install -r requirements.txt
    ```
 
-3. Install ChromeDriver:
-   - Download the appropriate version of ChromeDriver for your system from [here](https://sites.google.com/a/chromium.org/chromedriver/downloads).
-   - Ensure the ChromeDriver executable is in your system's PATH.
-
-## Configuration
-
-1. Create a `.env` file in the project root directory with the following content:
+3. Set up your environment variables by creating a `.env` file in the project root:
    ```
-   IKEA_PRODUCT_URL=https://www.ikea.com.hk/zh/products/your-product-url-here
+   TELEGRAM_BOT_TOKEN=your_telegram_bot_token
+   TELEGRAM_CHAT_ID=your_telegram_chat_id
    ```
-   Replace `your-product-url-here` with the URL of the IKEA product you want to check.
 
 ## Usage
 
-Run the script with the following command:
+### Local Execution
+
+To run the stock checker locally:
 
 ```
-python ikea_stock_checker.py
+python telegram_bot.py
 ```
 
-The script will output whether the specified product is in stock or not.
+### GitHub Actions
 
-## Running Periodically with GitHub Actions
+The project includes a GitHub Actions workflow (`ikea-stock-checker.yml`) that runs the stock checker every 10 minutes. To use this:
 
-To run this script periodically using GitHub Actions:
+1. Fork this repository
+2. Go to your fork's Settings > Secrets and add the following repository secrets:
+   - `TELEGRAM_BOT_TOKEN`: Your Telegram bot token
+   - `TELEGRAM_CHAT_ID`: Your Telegram chat ID
+3. Enable GitHub Actions for your fork
 
-1. Push your code to a GitHub repository.
-2. Create a `.github/workflows/stock_check.yml` file in your repository with the content provided in the "GitHub Actions Workflow" section of this README.
-3. Set up the `IKEA_PRODUCT_URL` secret in your GitHub repository settings.
+## Customization
+
+To check different IKEA products, edit the `urls` list in the `main()` function of `telegram_bot.py`.
 
 ## Contributing
 
-Contributions to this project are welcome. Please fork the repository and create a pull request with your changes.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
@@ -70,4 +68,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Disclaimer
 
-This script is for educational purposes only. Please respect IKEA's terms of service and do not perform checks too frequently.
+This tool is for personal use only. Please be respectful of IKEA's website and terms of service.
