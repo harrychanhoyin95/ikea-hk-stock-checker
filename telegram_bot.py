@@ -49,7 +49,6 @@ async def main() -> None:
     """Start the bot."""
     # List of IKEA product URLs to check
     urls = [
-        "https://www.ikea.com.hk/zh/products/luminaires/table-lamps/varmblixt-art-20525144",
         "https://www.ikea.com.hk/zh/products/luminaires/table-lamps/nodmast-art-70575914",
     ]
 
