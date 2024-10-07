@@ -13,7 +13,7 @@ This Python script checks the stock availability of a specified IKEA product on 
 
 Before you begin, ensure you have met the following requirements:
 
-- Python 3.7 or higher
+- Python 3.12 or higher
 - pip (Python package installer)
 - Chrome browser installed on your system
 
